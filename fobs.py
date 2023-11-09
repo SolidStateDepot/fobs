@@ -1,3 +1,7 @@
+# THIS SCRIPT IS DEPRECATED AND ITS USAGE IS NO LONGER ENCOURAGED
+# LEFT HERE FOR POSTERITY
+
+
 import subprocess
 
 # Get SITE_CODE and RANGE_START values from #fobs channel on slack.

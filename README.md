@@ -1,4 +1,36 @@
 # fobs
+
+## Current Working Instructions
+The registration computer in the corner of the woodshop is correctly setup with proxmark3 (iceman) and the reflash script from this repo.
+
+To use the reflash script:
+- Take the proxmark3 out of its box and connect to USB port on the computer
+- Open a terminal with Ctrl+Alt+T
+- Run `python3 reflash.py`
+
+You should now see scrolling text of the reader attempting to read a fob. The lights on the reader should periodically flash red.
+
+When you now place a fob over the reader it will read it (flash red) detect that it has an incorrect facility code and overwrite the facility code (flash green), then return to flashing red as it periodically reads the card and decides not to take action.
+
+A bag of fobs can now be one-by-one passed over the reader until it flashes green. It takes ~3 seconds per fob.
+
+## How to setup proxmark3 and the reflash.py script
+I found much better luck using the "iceman" fork of proxmark from here: https://github.com/RfidResearchGroup/proxmark3
+
+The registration computer is currently using their latest master commit as of writing this: 4ca3f2c
+
+Follow the linux installation instructions and compiling instructions (in detail) from that repo's doc files.
+
+After that the `python3 relfash.py` command should simply work.
+
+## Some debugging tips
+You should be able to run `pm3` from the terminal and get to the proxmark3 command line. It should automatically detect the proxmark3 if the firmware is correct.
+
+You can check if the device is functioning properly with `hw tune` this command failed on one of the proxmarks we have due to some issue with the lf antenna.
+
+`lf hid reader` can be used inside of pm3 to manually check a card.
+
+## Legacy Instructions for older setup - DO NOT FOLLOW
 Script for creating blank key fobs for SSD.
 
 Instructions for use:
